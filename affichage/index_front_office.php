@@ -75,6 +75,7 @@
                     <ul class="nav navbar-nav text-right">
                         <li class="active smooth-scroll"><a href="index_front_office.php">Home</a></li>
                         <li class="smooth-scroll"><a href="#product">Product </a></li>
+                        <li class="smooth-scroll"><a href="prevision.php">Prevision</a></li>
                         <li class="smooth-scroll"><a href="index.php">Log Out </a></li>
                     </ul>
                 </div>
@@ -171,7 +172,23 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="teashop-btn" href="resultat.php">Resultat</a>
+                        <a class="teashop-btn" href="date_resultat.php">Resultat</a>
+                    </div>
+                </div>
+
+
+                <!-- Start Single Product Box Here -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-product-box">
+                        <h4>Paiement</h4>
+                        <div class="product-photo">
+                            <div class="teashop-table">
+                                <div class="teashop-table-cell">
+                                    <img src="./front-office/assets/img/pay.png" alt="Product Photo">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="teashop-btn" href="date_paiement.php">Paiement</a>
                     </div>
                 </div>
                 <!-- Ends Single Product Box Here -->
@@ -213,7 +230,7 @@
                     <div class="col-md-12">
                         <div class="copyright text-center">
                             &copy; Copyright <a href="https://themeforest.net/user/radiustheme"
-                                target="_blank">RadiusTheme</a> 2019 All Right Reserved. Design by <a
+                                target="_blank">RadiusTheme</a> ETU2716 - ETU2597 - ETU2632 <a
                                 href="https://themeforest.net/user/themexone" target="_blank">themexone</a>
                         </div>
                     </div>
@@ -235,9 +252,6 @@
     <script type="text/javascript" src="./front-office/assets/js/isotope-3.0.4.min.js"></script>
     <script type="text/javascript" src="./front-office/assets/js/magnific-popup.min.js"></script>
     <script type="text/javascript" src="./front-office/assets/js/wow-1.3.0.min.js"></script>
-    <!-- Google Map -->
-    <script type="text/javascript" src="./front-office/assets/js/google-map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTTWvVJPW54aA5PEWrQTldVBFDhC0c-Q"></script>
     <!-- Contact Form -->
     <script type="text/javascript" src="./front-office/assets/js/contact-form.js"></script>
     <!-- Active Scripts Here -->

@@ -20,6 +20,7 @@
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-logout d-none d-lg-block">
         <a class="nav-link" href="../index.php">
+          Log Out
           <i class="mdi mdi-power"></i>
         </a>
       </li>

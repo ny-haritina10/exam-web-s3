@@ -47,8 +47,21 @@ INSERT INTO SalaireCueilleur (id_cueilleur, salaire) VALUES (4, 1550.25);
 INSERT INTO SalaireCueilleur (id_cueilleur, salaire) VALUES (5, 1625.00);
 
 
-INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (1, '2023-05-05', 200.00);
+INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (1, '2023-01-01', 200.00);
 INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (2, '2023-05-07', 750.50);
-INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (3, '2023-05-10', 100.00);
-INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (4, '2023-05-12', 50.25);
-INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (5, '2023-05-15', 300.00);
+INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (3, '2023-10-10', 100.00);
+INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (4, '2023-02-12', 50.25);
+INSERT INTO Depense (id_categorie_depense, date_depense, montant) VALUES (5, '2023-03-15', 300.00);
+
+
+INSERT INTO Cueillette (date_cueillette, id_cueilleur, id_parcelle, poids_cueillette) VALUES
+('2023-01-01', 1, 1, 10.5),
+('2023-01-05', 2, 2, 8.2),
+('2023-02-10', 3, 3, 12.3),
+('2023-03-15', 4, 4, 9.8),
+('2023-04-20', 5, 5, 11.1),
+('2023-05-25', 1, 1, 7.5),
+('2023-06-30', 2, 2, 14.2),
+('2023-07-10', 3, 3, 6.3),
+('2023-08-15', 4, 4, 13.7),
+('2023-09-20', 5, 5, 10.9);

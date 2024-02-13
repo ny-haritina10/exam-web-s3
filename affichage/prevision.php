@@ -57,6 +57,11 @@
         margin-bottom: 15px;
         outline: none;
         }
+
+        .bouton-vert {
+            background-color: green;
+            color: white;
+        }
     </style>
 </head>
 
@@ -114,93 +119,28 @@
     <!-- Header Ends Here -->
 
 
-    <!-- Start Contact Here -->
-    <section class="section-padding bg-overlay" style="background-image: url(./front-office/assets/img/slider/slider-3.jpg);" id="contact">
+    <!-- Start Product Here -->
+    <section class="section-padding" id="product">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <!-- Start Section Header Here -->
                     <div class="section-header text-center">
-                        <h2>Saisie des cueillettes</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fa fa-map-marker"></i> 172 W Avenue, <br> New York, NY 10017
-                        </li>
-                        <li>
-                            <i class="fa fa-phone"></i> +8800 123 45 67 <br> +1 800 123 45 66
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope"></i>
-                            <a href="mailto:example@gmail.com">example@gmail.com</a> <br>
-                            <a href="mailto:example@gmail.com">example@gmail.com</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-globe"></i>
-                            <a href="#">www.yourwebsite.com</a>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="col-sm-6">
-                    <div class="contact-form">
-                        <form id="cueillette-form">
-                            <div class="form_group" id="name_field">
-                                <!-- Ajout du label pour le champ "Poids Cueillette" -->
-                                <label style="color: white" for= "Poids_Cueillette">Poids Cueillette</label>
-                                <div class="input_field">
-                                    <input type="number" class="form-control" name="Poids_Cueillette" id="Poids_Cueillette" placeholder="Poids Cueillette">
-                                </div>
-                            </div>
-
-                            <div class="form_group" id="email_field">
-                                <!-- Ajout du label pour le champ "Date" -->
-                                <label for="Date" style="color: white">Date</label>
-                                <div class="input_field">
-                                    <input type="date" class="form-control" name="Date" id="Date" placeholder="Date">
-                                </div>
-                            </div>
-                                            
-                            <div class="form_group" style="width: 100%">
-                                <!-- Ajout du label pour le champ "Cueilleur" -->
-                                <label for="Cueilleur" style="color: white">Cueilleur</label>
-                                <select name="Cueilleur" class="form-control" id="Cueilleur">
-                                    <?php
-                                    foreach ($cueilleurs as $cueilleur) { ?>
-                                        <option value="<?php echo $cueilleur['id']; ?>"><?php echo $cueilleur['nom']; ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-
-
-                            <div class="form_group" style="width: 100%">
-                                <label for="parcelle" style="color: white">Parcelle</label>
-                                <select name="Parcelle" class="form-control" id="parcelle">
-                                    <?php
-                                    foreach ($parcelles as $parcelle) { ?>
-                                        <option value="<?php echo $parcelle['id']; ?>"><?php echo $parcelle['num_parcelle']; ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-
-                            <div class="form_group">
-                                <div class="input_field">
-                                    <button class="teashop-btn" type="submit">Valider</button>
-                                </div>
-                            </div>
+                        <h3>Tea is a drink of health <span>& beauty for you</span></h3>
+                        <form id="prevision-form">
+                            <p>Date: <input type="date" name="date-prevision"></input></p>
+                            <input type="submit" value="Valider"  class="bouton-vert" >
                         </form>
                     </div>
+                    <!-- Ends Section Header Here -->
                 </div>
-
+            </div>
+            <div class="row" id="row-card">
+                    
             </div>
         </div>
     </section>
-    <!-- Ends Contact Here -->
-
-
+    <!-- Ends Product Here -->
     
     <!-- Start Footer Here -->
     <footer class="section-padding" id="footer">
@@ -241,7 +181,7 @@
     <!-- 
 		All Script Here
 	================================ -->
-    <script src="../js/insert-cueillette.js"></script>
+    <script src="../js/prevision.js"></script>
 
     <script type="text/javascript" src="./front-office/assets/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="./front-office/assets/js/bootstrap-3.3.7.min.js"></script>
@@ -251,6 +191,9 @@
     <script type="text/javascript" src="./front-office/assets/js/isotope-3.0.4.min.js"></script>
     <script type="text/javascript" src="./front-office/assets/js/magnific-popup.min.js"></script>
     <script type="text/javascript" src="./front-office/assets/js/wow-1.3.0.min.js"></script>
+    <!-- Google Map -->
+    <script type="text/javascript" src="./front-office/assets/js/google-map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcTTWvVJPW54aA5PEWrQTldVBFDhC0c-Q"></script>
     <!-- Contact Form -->
     <script type="text/javascript" src="./front-office/assets/js/contact-form.js"></script>
     <!-- Active Scripts Here -->

@@ -9,8 +9,7 @@
     $parcelle = $_POST['Parcelle'];
     $poids = $_POST['Poids_Cueillette'];
 
-    $cueillette = new Cueillette($date,$cueilleur, $parcelle, $poids);
-     
+    $cueillette = new Cueillette($date,$cueilleur, $parcelle, $poids);   
     $cueillette->insert();
 
     $response = true;

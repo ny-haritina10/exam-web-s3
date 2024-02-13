@@ -94,6 +94,42 @@
         }
 
 
+        public static function get_global_result($dt_min, $dt_max) {
+            $query = "WITH TotalDepenses AS (
+                            SELECT COALESCE(SUM(montant), 0) AS total_depenses  
+                            FROM Depense
+                            WHERE date_depense BETWEEN '$dt_min' AND '$dt_max'
+                        )
+                        SELECT
+                            g.nom_variete,
+                            poids_cueillette_total,
+                            poidsRestants,
+                            g.salaireCeuilleur + COALESCE((SELECT total_depenses FROM TotalDepenses), 0) AS cout_de_revient_par_kg,
+                            COALESCE((SELECT total_depenses FROM TotalDepenses), 0) AS Montant_des_depenses,
+                            SUM(g.poids_cueillette * g.prix_de_vente) AS Montant_vente,
+                            (SUM(g.poids_cueillette * g.prix_de_vente) - COALESCE((SELECT total_depenses FROM TotalDepenses), 0)) AS benefice
+                        FROM
+                            getPoidsRestantsParcelles g
+                        WHERE
+                            g.date_cueillette BETWEEN '$dt_min' AND '$dt_max'
+                        GROUP BY
+                            g.nom_variete, g.salaireCeuilleur, poids_cueillette_total, poidsRestants;";
+            
+            return Database::fetch($query);
+        }   
+
+        
+        public static function get_paiement($dt_min, $dt_max) {
+            $query = " SELECT * FROM v_paiement WHERE date_cueillette BETWEEN '$dt_min' AND '$dt_max'";
+
+            return Database::fetch($query);
+        }
+
+
+        public static function prevision($date) {
+            $query = " SELECT * FROM v_prevision WHERE date_cueillette <= '$date'";
+            return Database::fetch($query);
+        }
 
         // GETTERS AND SETTERS
         public function getDateCueillette() 

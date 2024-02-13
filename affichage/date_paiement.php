@@ -1,7 +1,5 @@
 <?php
     require_once("../php/model/BaseModel.php");
-    $parcelles  = BaseModel::get_all("Parcelle");
-    $cueilleurs  = BaseModel::get_all("Cueilleur");
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +118,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="section-header text-center">
-                        <h2>Saisie des cueillettes</h2>
+                        <h2>Saisie Date Paiement</h2>
                     </div>
                 </div>
             </div>
@@ -147,45 +145,23 @@
                 
                 <div class="col-sm-6">
                     <div class="contact-form">
-                        <form id="cueillette-form">
+                        <form action="liste_paiement.php" method="post">
                             <div class="form_group" id="name_field">
                                 <!-- Ajout du label pour le champ "Poids Cueillette" -->
-                                <label style="color: white" for= "Poids_Cueillette">Poids Cueillette</label>
+                                <label style="color: white" for= "date_min">Date Min</label>
                                 <div class="input_field">
-                                    <input type="number" class="form-control" name="Poids_Cueillette" id="Poids_Cueillette" placeholder="Poids Cueillette">
+                                    <input type="date" class="form-control" name="date_min" id="date_min" placeholder="Date Min">
                                 </div>
                             </div>
 
-                            <div class="form_group" id="email_field">
-                                <!-- Ajout du label pour le champ "Date" -->
-                                <label for="Date" style="color: white">Date</label>
+                            <div class="form_group" id="name_field">
+                                <!-- Ajout du label pour le champ "Poids Cueillette" -->
+                                <label style="color: white" for= "date_max">Date max</label>
                                 <div class="input_field">
-                                    <input type="date" class="form-control" name="Date" id="Date" placeholder="Date">
+                                    <input type="date" class="form-control" name="date_max" id="date_max" placeholder="Date max">
                                 </div>
                             </div>
                                             
-                            <div class="form_group" style="width: 100%">
-                                <!-- Ajout du label pour le champ "Cueilleur" -->
-                                <label for="Cueilleur" style="color: white">Cueilleur</label>
-                                <select name="Cueilleur" class="form-control" id="Cueilleur">
-                                    <?php
-                                    foreach ($cueilleurs as $cueilleur) { ?>
-                                        <option value="<?php echo $cueilleur['id']; ?>"><?php echo $cueilleur['nom']; ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-
-
-                            <div class="form_group" style="width: 100%">
-                                <label for="parcelle" style="color: white">Parcelle</label>
-                                <select name="Parcelle" class="form-control" id="parcelle">
-                                    <?php
-                                    foreach ($parcelles as $parcelle) { ?>
-                                        <option value="<?php echo $parcelle['id']; ?>"><?php echo $parcelle['num_parcelle']; ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-
                             <div class="form_group">
                                 <div class="input_field">
                                     <button class="teashop-btn" type="submit">Valider</button>
