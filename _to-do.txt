@@ -1,0 +1,436 @@
+# Final Exam S3 | To Do List
+# --------------------------- #
+
+# REQUIREMENTS : 
+    - Database : MySQL
+    - Data test
+    - ETU and name in the Footer
+    - Template
+
+# A PREPARER :
+    - Lien URL sur le serveur ITU : 
+    - Lien Copie d'ecran des scripts pour la creation de tables
+    - Lien google sheet pour la liste des taches 
+    - Lien GitHub (Repositorie)
+
+# ---------------------------- #
+
+# FONCTIONNALITES   
+    A - UTILS
+        1 - DATABASE 
+            -> Appel de connexion
+            -> Execution de requete (EXECUTE)
+            -> recuperation de donnees (FETCH)
+        
+        2 - CONTROLE DE VALEURS 
+            -> String : len != 0, not null, != ""
+            -> number : not negative
+
+        3 - Model 
+            -> get_all
+            -> get_by_id
+            -> insert
+            -> delete 
+            -> update 
+
+    B - BACK_OFFICE
+        1/ LOGIN ADMIN 
+        ==> AFFICHAGE 
+            - Formulaire connexion 
+                -> input : mail, mdp
+                -> btn submit
+                -> CSS & Bootstrap
+        ==> FONCTION
+            - Function authentification
+                -> param : mail, mdp
+                -> Return false ou true 
+
+        ==> TABLE 
+            - Table Admin 
+                -> Colonne : id, mail, mdp
+
+        ==> INTEGRATION
+            - Recupperation donnees Formulaire
+            - Appel fonction controle de valeur 
+            - Appel fonction authentification
+            - Redirection : 
+                If True => accueil.php
+                ELSE => login_admin.php
+
+        2/ GESTION CRUD
+            I - VARIETE THE
+                ==> AFFICHAGE 
+                    - Formulaire insertion (insert_the.php)
+                        -> input : nom, occupation, rendement 
+                        -> btn submit
+                    - Liste Variete THE (list_the.php)
+                        -> Colonne :  nom, occupation, rendement 
+                        -> COLONE : DELETE & UDPATE
+                
+                ==> FONCTION 
+                    - Function insert_the
+                        -> param : nom_variete, occupation, rendement
+                        -> Return void 
+                    - Function delete_the :     
+                        -> param : id
+                        -> Return void
+                    - Function update_the : 
+                        -> param : nom, occupation, rendement
+                        -> Return void
+                    - Function get_all : 
+                        -> param : void
+                        -> Return : Array
+
+                ==> TABLE 
+                    - Table The 
+                        -> Colonne : id, nom_variete, occupation, rendement
+
+                ==> INTEGRATION
+                    ** INSERT ** 
+                        - Recupperation donnees Formulaire
+                        - Appel fonction controle de valeurs
+                        - Redirection (formulaire_insert_the.php): 
+                            - IF TRUE : Appel fonction insert_the 
+                            - ELSE : message d'erreur 
+                    ** LIST ** 
+                        - Appel fonction get_all
+                        - Redirection list_the.php
+                            -> Affichage donnees 
+                        
+                    ** DELETE ** 
+                        - Recupperation id the 
+                        - Appel de la fonction delete_the
+                        - Redirection : list_the.php
+                    
+                    ** UDPATE ** 
+                        - Recupperation ID 
+                        - Appel de la fonction get_by_id
+                            -> recuperation de l'instance de the 
+                        - Pre remplir Formulaire 
+                            -> recuperation de l'instance de the 
+                            -> remplir Formulaire par valeur instance (formulaire_insert_the.php)
+                        - Recupperation new valeur 
+                        - Appel de la fonction update_the
+                        - Redirection : list_the.php
+
+            II - PARCELLE
+                ==> AFFICHAGE 
+                    - Formulaire insertion (insert_parcelle.php)
+                        -> input : num_parcelle , surface,   
+                        -> select : variete_the
+                        -> btn submit
+                    - Liste Variete parcelle (list_parcelle.php)
+                        -> Colonne :  num_parcelle , surface, variete_the  
+                        -> COLONE : DELETE & UDPATE
+                
+                ==> FONCTION 
+                    - Function insert_parcelle
+                        -> param : num_parcelle , surface, variete_the 
+                        -> Return void 
+                    - Function delete_parcelle :     
+                        -> param : id
+                        -> Return void
+                    - Function update_parcelle : 
+                        -> param : num_parcelle , surface, variete_the 
+                        -> Return void
+                    - Function get_all : 
+                        -> param : void
+                        -> Return : Array
+
+                ==> TABLE 
+                    - Table parcelle 
+                        -> Colonne : id, num_parcelle, surface, id_the (Foreign KEY -> The)
+
+                ==> INTEGRATION
+                    ** INSERT ** 
+                        - Recupperation donnees Formulaire
+                        - Appel fonction controle de valeurs
+                        - Redirection (formulaire_insert_parcelle.php): 
+                            - IF TRUE : Appel fonction insert_parcelle 
+                            - ELSE : message d'erreur 
+                    ** LIST ** 
+                        - Appel fonction get_all
+                        - Redirection list_parcelle.php
+                            -> Affichage donnees 
+                        
+                    ** DELETE ** 
+                        - Recupperation id parcelle 
+                        - Appel de la fonction delete_parcelle
+                        - Redirection : list_parcelle.php
+                    
+                    ** UDPATE ** 
+                        - Recupperation ID 
+                        - Appel de la fonction get_by_id
+                            -> recuperation de l'instance de parcelle 
+                        - Pre remplir Formulaire 
+                            -> recuperation de l'instance de parcelle 
+                            -> remplir Formulaire par valeur instance (formulaire_insert_parcelle.php)
+                        - Recupperation new valeur 
+                        - Appel de la fonction update_parcelle
+                        - Redirection : list_parcelle.php
+
+            III - CUEILLEUR
+                ==> AFFICHAGE 
+                    - Formulaire insertion (insert_cueilleur.php)
+                        -> input : nom, genre, dtn   
+                        -> btn submit
+                    - Liste Variete cueilleur (list_cueilleur.php)
+                        -> Colonne :  nom, genre, dtn 
+                        -> COLONE : DELETE & UDPATE
+                
+                ==> FONCTION 
+                    - Function insert_cueilleur
+                        -> param : nom, genre, dtn
+                        -> Return void 
+                    - Function delete_cueilleur :     
+                        -> param : id
+                        -> Return void
+                    - Function update_cueilleur : 
+                        -> param : nom, genre, dtn
+                        -> Return void
+                    - Function get_all : 
+                        -> param : void
+                        -> Return : Array
+
+                ==> TABLE 
+                    - Table cueilleur 
+                        -> Colonne : id, nom, genre, dtn 
+
+                ==> INTEGRATION
+                    ** INSERT ** 
+                        - Recupperation donnees Formulaire
+                        - Appel fonction controle de valeurs
+                        - Redirection (formulaire_insert_cueilleur.php): 
+                            - IF TRUE : Appel fonction insert_cueilleur 
+                            - ELSE : message d'erreur 
+                    ** LIST ** 
+                        - Appel fonction get_all
+                        - Redirection list_cueilleur.php
+                            -> Affichage donnees 
+                        
+                    ** DELETE ** 
+                        - Recupperation id cueilleur 
+                        - Appel de la fonction delete_cueilleur
+                        - Redirection : list_cueilleur.php
+                    
+                    ** UDPATE ** 
+                        - Recupperation ID 
+                        - Appel de la fonction get_by_id
+                            -> recuperation de l'instance de cueilleur 
+                        - Pre remplir Formulaire 
+                            -> recuperation de l'instance de cueilleur 
+                            -> remplir Formulaire par valeur instance (formulaire_insert_cueilleur.php)
+                        - Recupperation new valeur 
+                        - Appel de la fonction update_cueilleur
+                        - Redirection : list_cueilleur.php
+
+            
+            IV - CATEGORIE DEPENSE
+                ==> AFFICHAGE 
+                    - Formulaire insertion (insert_categorie_depense.php)
+                        -> input : type_depense, montant_depense   
+                        -> btn submit
+                    - Liste Variete categorie_depense (list_categorie_depense.php)
+                        -> Colonne :  type_depense, montant_depense 
+                        -> COLONE : DELETE & UDPATE
+                
+                ==> FONCTION 
+                    - Function insert_categorie_depense
+                        -> param : type_depense, montant_depense
+                        -> Return void 
+                    - Function delete_categorie_depense :     
+                        -> param : id
+                        -> Return void
+                    - Function update_categorie_depense : 
+                        -> param : type_depense, montant_depense
+                        -> Return void
+                    - Function get_all : 
+                        -> param : void
+                        -> Return : Array
+
+                ==> TABLE 
+                    - Table categorie_depense 
+                        -> Colonne : id, type_depense, montant_depense 
+
+                ==> INTEGRATION
+                    ** INSERT ** 
+                        - Recupperation donnees Formulaire
+                        - Appel fonction controle de valeurs
+                        - Redirection (formulaire_insert_categorie_depense.php): 
+                            - IF TRUE : Appel fonction insert_categorie_depense 
+                            - ELSE : message d'erreur 
+                    ** LIST ** 
+                        - Appel fonction get_all
+                        - Redirection list_categorie_depense.php
+                            -> Affichage donnees 
+                        
+                    ** DELETE ** 
+                        - Recupperation id categorie_depense 
+                        - Appel de la fonction delete_categorie_depense
+                        - Redirection : list_categorie_depense.php
+                    
+                    ** UDPATE ** 
+                        - Recupperation ID 
+                        - Appel de la fonction get_by_id
+                            -> recuperation de l'instance de categorie_depense 
+                        - Pre remplir Formulaire 
+                            -> recuperation de l'instance de categorie_depense 
+                            -> remplir Formulaire par valeur instance (formulaire_insert_categorie_depense.php)
+                        - Recupperation new valeur 
+                        - Appel de la fonction update_categorie_depense
+                        - Redirection : list_categorie_depense.php            
+
+
+        IV - Salaire Cueilleur
+                ==> AFFICHAGE 
+                    - Formulaire insertion (insert_salaire_cueilleur.php)
+                        -> select : liste des cueilleur
+                            - value = id_cueilleur
+                            - Mipotra : nom_cueilleur
+                        -> input :  salaire   
+                        -> btn submit
+                    - Liste Variete salaire_cueilleur (list_salaire_cueilleur.php)
+                        -> Colonne : nom_cueilleur, salaire 
+                        -> COLONE : DELETE & UDPATE
+                
+                ==> FONCTION 
+                    - Function insert_salaire_cueilleur
+                        -> param :  id_cueilleur, salaire
+                        -> Return void 
+                    - Function delete_salaire_cueilleur :     
+                        -> param : id
+                        -> Return void
+                    - Function update_salaire_cueilleur : 
+                        -> param : id
+                        -> Return void
+                    - Function get_all : 
+                        -> param : void
+                        -> Return : Array
+
+                ==> TABLE 
+                    - Table salaire_cueilleur 
+                        -> Colonne : id, id_cueilleur (Foreign KEY -> Cueilleur), salaire 
+
+                ==> INTEGRATION
+                    ** INSERT ** 
+                        - Recupperation donnees Formulaire
+                        - Appel fonction controle de valeurs
+                        - Redirection (formulaire_insert_salaire_cueilleur.php): 
+                            - IF TRUE : Appel fonction insert_salaire_cueilleur 
+                            - ELSE : message d'erreur 
+                    ** LIST ** 
+                        - Appel fonction get_all
+                        - Redirection list_salaire_cueilleur.php
+                            -> Affichage donnees 
+                        
+                    ** DELETE ** 
+                        - Recupperation id salaire_cueilleur 
+                        - Appel de la fonction delete_salaire_cueilleur
+                        - Redirection : list_salaire_cueilleur.php
+                    
+                    ** UDPATE ** 
+                        - Recupperation ID 
+                        - Appel de la fonction get_by_id
+                            -> recuperation de l'instance de salaire_cueilleur 
+                        - Pre remplir Formulaire 
+                            -> recuperation de l'instance de salaire_cueilleur 
+                            -> remplir Formulaire par valeur instance (formulaire_insert_salaire_cueilleur.php)
+                        - Recupperation new valeur 
+                        - Appel de la fonction update_salaire_cueilleur
+                        - Redirection : list_salaire_cueilleur.php
+
+
+    C - FRONT - OFFICE 
+        1/ LOGIN USER 
+            ==> AFFICHAGE 
+                - Formulaire connexion 
+                    -> input : user_name, mdp, dtn, mail
+                    -> btn submit
+                    -> CSS & Bootstrap
+            ==> FONCTION
+                - Function authentification
+                    -> param : mail, mdp
+                    -> Return false ou true 
+
+            ==> TABLE 
+                - Table user 
+                    -> Colonne : user_name, mdp, dtn, mail
+                    
+            ==> INTEGRATION
+                - Recupperation donnees Formulaire
+                - Appel fonction controle de valeur 
+                - Appel fonction authentification
+                - Redirection : 
+                    If True => accueil.php
+                    ELSE => login_user.php
+
+        
+        2/ PAGE SAISIE CUIELLETE
+              ==> AFFICHAGE 
+                - Formulaire insertion_cueillette
+                    -> input : date, poids cueillette
+                    -> select : Cueilleur , Parcelle
+                    -> btn submit
+                    -> CSS & Bootstrap
+            ==> FONCTION
+                - Function insert_cueillete 
+                    - param :  date, poids cueillette, Cueilleur , Parcelle
+                    - Return void
+            ==> TABLE 
+                - Table Cueillette 
+                    -> Colonne : id, date, poids_cueillette, id_cueilleur (FK), id_parcelle (FK)
+                    
+            ==> INTEGRATION
+                - Recupperation donnees Formulaire
+                - Appel fonction controle de valeur 
+                - Appel fonction insert_cueillete
+                - Verification poids cueillette , need to be < poids restamts sur parcelle 
+                - Redirection : 
+                    IF TRUE =>
+                        Redirection insertion_cueillette
+                    ELSE => 
+                        -> Affichage message d'erreur
+
+
+        3/ PAGE SAISIE DEPENSE
+              ==> AFFICHAGE 
+                - Formulaire insertion_depense
+                    -> input : date, montant 
+                    -> select : categorie_depense
+                    -> btn submit
+                    -> CSS & Bootstrap
+            ==> FONCTION
+                - Function insert_cueillete 
+                    - param :  date, montant, categorie_depense
+                    - Return void
+            ==> TABLE 
+                - Table depense 
+                    -> Colonne : id, date, montant, id_categorie_depense (FK)
+                    
+            ==> INTEGRATION
+                - Recupperation donnees Formulaire
+                - Appel fonction controle de valeur 
+                    - Appel fonction insert_cueillete
+                    - Redirection : 
+                        IF TRUE =>
+                            Redirection insertion_depense
+                        ELSE => 
+                            -> Affichage message d'erreur
+
+        4/ PAGE RESULTAT
+            ==> AFFICHAGE 
+            TABLE :
+                => Colonne :  
+                    - Poids Total cueillette
+                    - Poids restamts sur les parcelles 
+                    - Cout de revient par kg
+
+                -> CSS & Bootstrap
+            ==> FONCTION
+                Function : get_global_result (VIEW 1)
+
+            ==> TABLE 
+                    
+            ==> INTEGRATION
+               - Appel de fonction : get_global_result
+               - AFFICHAGE Tableau   
